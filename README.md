@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Resources to Learn React
+
+https://www.folio3.com/using-less-in-react-without-ejecting How to use Less in React without ejecting.
+
+<--  React Basics  -->
+https://www.youtube.com/watch?v=Tn6-PIqc4UM
+https://www.youtube.com/watch?v=mACw_G-okPE&t=3190s
+https://tr.reactjs.org/docs/hooks-state.html
+https://reactjs.org/tutorial/tutorial.html
