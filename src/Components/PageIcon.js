@@ -27,7 +27,7 @@ function PageIcon(props) {
     const TagName = components[props.tag || 'Done'];
 
     return (
-        <div className="mainIconControl">
+        <div className="mainIconControl" onClick={props.customClickEvent}>
             <div className="PageIcon" id={props.tag}>
                 <TagName className="icon" />
             </div>
