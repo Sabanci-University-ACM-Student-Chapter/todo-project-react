@@ -1,4 +1,274 @@
-p {
-  color: blue;
+* {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  overflow-y: none;
+  font-family: 'Roboto', sans-serif;
+  outline: hidden;
+}
+textarea {
+  outline: none;
+  overflow: hidden;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}
+.App {
+  width: 1050px;
+  height: 780px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 250px 800px;
+  grid-template-areas: "A B" "A B" "A B";
+  border-radius: 25px;
+}
+.SideBar {
+  grid-area: A;
+  display: grid;
+  grid-template-columns: 230px 20px;
+  grid-template-rows: 60px 620px 1fr;
+  grid-template-areas: "C C" "A B" "D D";
+  align-items: center;
+  justify-items: center;
+  background-color: #CCE8FE;
+  font-family: 'Roboto', sans-serif;
+}
+.SideBar .SideBarTitle {
+  text-align: center;
+  grid-area: C;
+}
+.SideBar .controlPanel {
+  grid-area: A;
+  margin-top: 5px;
+  height: 100%;
+  border-radius: 50px;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+}
+.SideBar .controlPanel::-webkit-scrollbar {
+  display: none;
+}
+.SideBar .addProject {
+  grid-area: D;
+}
+.SideBarScroll {
+  text-align: center;
+  grid-area: B;
+  height: 0%;
+  width: 6px;
+  border-radius: 3px;
+  background-color: #3fbbec;
+  animation: progress 1s linear;
+  transform: none;
+}
+@keyframes progress {
+  to {
+    background-color: #114dce;
+    background-image: linear-gradient(19deg, #34a8c4 0%, #B721FF 100%);
+    height: 100%;
+  }
+}
+:root * {
+  /* Pause the animation */
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -0.1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.tabContainer {
+  display: grid;
+  grid-template-columns: 50px 180px;
+  align-items: center;
+  text-align: right;
+  width: 250px;
+  height: 50px;
+  transition: 0.5s;
+  font-size: 14px;
+}
+.tabContainer p:last-child {
+  text-align: left;
+  transform: translateX(20px);
+}
+.tabContainer:hover {
+  padding: 5px 5px;
+}
+.icon {
+  height: 20px;
+  width: 20px;
+}
+.projectName {
+  padding: 5px 0;
+  transform: translateX(30px);
+  color: #92a4b4;
+}
+.AddProject {
+  grid-area: D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.AddProject .addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+  font-weight: 300;
+  color: white;
+  background-color: #4BA5FF;
+  border-radius: 999px;
+  box-shadow: 0 0 4px 2px #4BA5FF;
+  transition: 0.3s;
+}
+.AddProject .addButton:hover {
+  box-shadow: 0 0 6px 3px #6d99f7;
+  width: 55px;
+  height: 55px;
+  font-size: 60px;
+}
+.AddProject .addButton p {
+  transform: translateY(-1px);
+}
+.ProjectPage {
+  display: grid;
+  grid-template-rows: 160px 550px 70px;
+  grid-template-areas: "A" "B" "C";
+  justify-content: center;
+  align-content: center;
+}
+.PageHeader {
+  grid-area: A;
+  display: grid;
+  grid-template-columns: 650px 150px;
+  grid-template-rows: 50px 100px;
+  align-items: flex-end;
+  grid-template-areas: "A B" "C B";
+  background-color: white;
+  border-bottom: 1px solid #CCE8FE;
+  padding: 0;
+}
+.PageHeader h4 {
+  margin-left: 20px;
+  grid-area: A;
+  color: #4BA5FF;
+}
+.PageHeader h1 {
+  margin-left: 30px;
+  font-size: 50px;
+  grid-area: C;
+  transform: translateY(-20px);
+}
+.minInfo {
+  grid-area: B;
+  height: 60%;
+  margin-top: 20px;
+  align-self: flex-start;
+  color: #92a4b4;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+.NoteDesc {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 760px 40px;
+  grid-template-areas: "A B";
+}
+.NoteDesc .noteArea {
+  border-radius: 15px;
+  padding-top: 10px;
+  grid-area: A;
+  width: 98%;
+  height: 96%;
+  background-color: white;
+  overflow-y: scroll;
+  resize: none;
+  font-size: 18px;
+  margin-left: 45px;
+}
+.NoteDesc .noteArea::-webkit-scrollbar {
+  display: none;
+}
+.NoteScroll {
+  grid-area: B;
+  height: 0%;
+  width: 6px;
+  border-radius: 3px;
+  background-color: #00b7ff;
+  animation: scrollanimation 1s linear;
+  transform: translateX(6px);
+}
+@keyframes scrollanimation {
+  to {
+    background-color: #0082de;
+    background-image: linear-gradient(180deg, #0082de 0%, #FC00FF 100%);
+    height: 100%;
+  }
+}
+:root .NoteScroll {
+  /* Pause the animation */
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scrollnote) * -0.1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.mainIconControl {
+  grid-area: B;
+  display: grid;
+  grid-template-columns: 35px 1fr ;
+  grid-template-areas: "A B";
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 10px;
+  transition: 1s;
+}
+.mainIconControl:hover {
+  width: 100px;
+}
+.mainIconControl:hover p {
+  visibility: visible;
+  grid-area: B;
+}
+.mainIconControl p {
+  display: inline-block;
+  padding: 10px;
+  visibility: hidden;
+  text-align: center;
+}
+.mainIconControl .icon {
+  height: 20px;
+  width: 20px;
+}
+.mainIconControl .PageIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+}
+.PageControl {
+  grid-area: C;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 30px;
+  transition: 1s;
 }
 /*# sourceMappingURL=App.css.map */

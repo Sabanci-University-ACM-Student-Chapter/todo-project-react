@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import ProjectPage from './Components/ProjectPage';
+import SideBar from './Components/SideBar';
 
 function App() {
   // "count" adında yeni bir state değişkeni tanımlayın.
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   return (
-    <div>
-      <p>You clickeds {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+    <div className="App">
+      <SideBar /> 
+      <ProjectPage />
     </div>
   );
 }
