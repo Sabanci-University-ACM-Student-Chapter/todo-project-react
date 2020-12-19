@@ -1,11 +1,19 @@
 import React, {useEffect} from 'react'
+import { useSelector } from 'react-redux';
 import AddProject from './AddProject.js';
 import ControlPanel from './ControlPanel.js'
 import SubTopic from './SubTopic.js'
 
 
 
+
 export default function SideBar() {
+
+
+    const projects = useSelector(state => state.Projects)
+
+
+
     useEffect(() => {
         document.querySelector(".controlPanel").addEventListener('scroll', () => {
             let x = document.querySelector(".controlPanel").scrollTop;
@@ -19,11 +27,9 @@ export default function SideBar() {
             <div className="SideBarScroll"></div>
             <div className="controlPanel">
                 <ControlPanel />
-                <SubTopic />
-                <SubTopic />
-                <SubTopic />
-                <SubTopic />
-                <SubTopic />
+                {projects.map((value,index) => {
+                return <SubTopic key={index} id={value.id} title={value.title} />
+            })}
             </div>
             <AddProject />
         </div>

@@ -2,9 +2,15 @@ import React from 'react'
 import Icon from './Icon.js'
 
 
+
 function ControlTab(props) {
+
+
+    
+
+
     return (
-        <div className="tabContainer">
+        <div className="tabContainer" onClick={props.onClick}>
             <div className="controlIcon">
                 <Icon tag={props.svg} />
             </div>

@@ -81,3 +81,6 @@ https://reactjs.org/tutorial/tutorial.html
 
 <-- Dynamic Component -->
 https://gist.github.com/mpolinowski/be444c52280598752a408b9e9b3de123
+
+<-- SVG import as a component -->
+https://www.youtube.com/watch?v=JUrcWu57itY

@@ -108,6 +108,7 @@ body {
   padding: 5px 0;
   transform: translateX(30px);
   color: #92a4b4;
+  text-transform: uppercase;
 }
 .AddProject {
   grid-area: D;
@@ -270,5 +271,36 @@ body {
   justify-content: space-evenly;
   margin-left: 30px;
   transition: 1s;
+}
+.TodoContainer {
+  font-size: large;
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: 50px 730px;
+  justify-items: flex-start;
+  align-items: center;
+  grid-template-areas: "A B";
+}
+.TodoContainer label {
+  grid-area: B;
+}
+.TodoContainer .Detail {
+  grid-area: B;
+  justify-self: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 30px;
+}
+.TodoContainer .Detail .icon {
+  justify-self: center;
+}
+.TodoContainer .custimizedCheckBox {
+  grid-area: A;
+  justify-self: center;
+}
+.checked {
+  color: grey;
+}
+.checked label {
+  text-decoration: line-through;
 }
 /*# sourceMappingURL=App.css.map */

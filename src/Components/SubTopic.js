@@ -1,25 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import ControlTab from './ControlTab.js'
 
-function SubTopic() {
-    const [elements,setElements] = useState([{
-        title: 'Element1',
-        svg: 'Element'
-    },
-    {
-        title: 'Element2',
-        svg: 'Element2'
-    },
-    {
-        title: 'Element3',
-        svg: 'Element2'
-    }])
+function SubTopic(props) {
+    const dispatch = useDispatch()
+    let projectTodos = []
+    const todos = useSelector(state => state.Todos)
+    todos.forEach(todo => {
+        if(todo.project_id === props.id){
+            projectTodos.push(todo)
+        }
+    });
+
+    
 
     return (
         <div>
-            <h5 className="projectName"> PROJECT NAME </h5>
-            {elements.map((value,index) => {
-                return <ControlTab key={index} title={value.title} svg={value.svg} />
+            <h5 className="projectName"> {props.title} </h5>
+            {projectTodos.map((value,index) => {
+                return <ControlTab key={index} title={value.description} svg={value.svg} onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: value.self_id})}  />
             })}
             
         </div>
