@@ -3,12 +3,12 @@ import {useSelector} from 'react-redux'
 import InboxHeader from './InboxHeader'
 import TodoTab from './TodoTab'
 
-function Inbox() {
-    const Todos = useSelector(state => state.Todos)
+function Completed() {
+    const Todos = useSelector(state => state.Todos.filter(todo => todo.isCompleted === true))
 
     return (
         <div>
-            <InboxHeader title="Inbox"/>
+            <InboxHeader title="Completed" />
             {Todos.map((value,index) => {
                 return <TodoTab key={index} self_id={value.self_id} description={value.description} date={value.date} isCompleted={value.isCompleted} />
             })}
@@ -19,4 +19,4 @@ function Inbox() {
     )
 }
 
-export default Inbox
+export default Completed

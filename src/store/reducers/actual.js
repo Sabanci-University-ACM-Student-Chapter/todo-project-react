@@ -34,10 +34,15 @@ const ActualTodoReducer = (state='INBOX',action) => {
             actualTodo.actual = true
             todos = [actualTodo, ...rest]
             todos.sort(compare)
-            console.log(rest)
             return actualTodo
         case 'CHANGE_TO_INBOX':
             return 'INBOX'
+        case 'CHANGE_TO_COMPLETED':
+            return 'COMPLETED'
+        case 'CHANGE_TO_TODAY':
+            return 'TODAY'
+        case 'CHANGE_TO_UPCOMING':
+            return 'UPCOMING'
         default:
             return state
     }

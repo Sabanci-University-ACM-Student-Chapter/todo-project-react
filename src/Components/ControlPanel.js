@@ -20,11 +20,8 @@ function ControlPanel() {
     {
         title: 'Completed',
         svg: 'Completed'
-    },
-    {
-        title: 'Trash',
-        svg: 'Trash'
-    }])
+    }
+    ])
 
     
 

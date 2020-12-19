@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 
 
-function NoteDesc() {
+function NoteDesc(props) {
 
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function NoteDesc() {
 
     return (
         <div className="NoteDesc">
-            <textarea className="noteArea" rows="3" cols="3" placeholder="Write here your notes!" />
+            <textarea className="noteArea" rows="3" cols="3" placeholder="Write here your notes!" defaultValue={props.actual.detail} />
             <div className="NoteScroll"></div>
         </div>
     )
