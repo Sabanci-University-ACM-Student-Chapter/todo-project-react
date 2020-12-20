@@ -388,3 +388,63 @@ body {
     color: @phh;
   }
 }
+
+.Project {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 630px;
+  grid-template-columns: 780px 20px;
+  grid-template-areas: "A B";
+  h2 {
+    color: @phh;
+    margin-left: 10px;
+    margin-top: 10px
+  }
+  .ProjectTabs {
+    grid-area: A;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .ProjectName {
+    width: 775px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ProjectTabs::-webkit-scrollbar {
+    display: none;
+}}
+.ProjectScroll {
+  grid-area: B;
+  height: 0%;
+  width: 6px;
+  border-radius: 3px;
+  background-color: #0082de;
+  // background-color: red;
+  animation: scrollanimation2 1s linear;
+}
+
+:root .ProjectScroll {
+  animation-delay: calc(var(--projectscroll) * -0.1s);
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  }
+
+@keyframes scrollanimation2 {
+to {
+  background-color: #0082de;
+  background-image: linear-gradient(180deg, #0082de 0%, #FC00FF 100%);
+  height: 100%;
+  }
+}
+
+
+
+
+

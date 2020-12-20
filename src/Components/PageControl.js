@@ -8,12 +8,21 @@ function PageControl(props) {
     const dispatch = useDispatch()
     const todos = useSelector(state => state.Todos)
 
+    const saveDetail = () => {
+        dispatch({type: 'SAVE_DETAIL',self_id:props.actual.self_id})
+        props.changeMode()
+    }
+    
+    const cancelDetail = () => {
+        dispatch({type: 'CANCEL_DETAIL',self_id:props.actual.self_id})
+        props.changeMode()
+    }
 
     if(props.mode === 'edit'){
         return (
         <div className="PageControl">
-            <PageIcon tag="Done" customClickEvent={props.changeMode} color="#a8ffb9" />
-            <PageIcon tag="Cancel" color="#FFE6E2" />
+            <PageIcon tag="Done" customClickEvent={saveDetail} color="#a8ffb9" />
+            <PageIcon tag="Cancel"customClickEvent={cancelDetail} color="#FFE6E2" />
         </div>
         )}
     else {

@@ -15,8 +15,14 @@ const ProjectReducer = (state=Projects,action) => {
         case 'ADD_PROJECT':
           localStorage.setItem("Projects", JSON.stringify([...action.Projects, action.newProject]));
           return [...action.Projects, action.newProject]
-          default:
-            return state
+        case 'REMOVE_PROJECT':
+          let rest = Projects.slice()
+          rest.splice(action.id,1)
+          localStorage.setItem("Projects", JSON.stringify(rest))
+          Projects = JSON.parse(localStorage.getItem("Projects"))
+          return rest
+        default:
+          return state
     }
 }
 

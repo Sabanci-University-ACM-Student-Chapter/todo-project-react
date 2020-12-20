@@ -11,10 +11,10 @@ function AddTodo() {
     const [mode,setMode] = useState('standart');
 
     useEffect(() => {
-        if(todos.length === 0){
+        if(projects.length === 0){
             setMode('newProject')
         }
-    },[todos.length])
+    },[projects.length])
 
 
     
@@ -41,20 +41,20 @@ function AddTodo() {
             <InboxHeader title='Add Todo' />
             <form className="addTodoPage">
                 <div className="ProjectSelect">
-                <label> Select Project </label>
-                {mode === 'standart' ? <select id="newTodoProject"  onChange={(e) => changeMode(e)} name="projects">
+                
+                {mode === 'standart' ? <div><label> Select Project </label><select id="newTodoProject"  onChange={(e) => changeMode(e)} name="projects">
                 {projects.map((value,index) => {
                     return <option key={index} value={value.id}> {value.title} </option>
                 })}
                 <option value='New'> New Project</option>
-            </select> : <div className="addProject">
+            </select> </div>: <div className="addProject"><label> Write your Project's Name</label>
             <input type="text" placeholder="For cancel, submit blank"/>
             <button onClick={(e) => {
                 e.preventDefault();
-                if(e.target.previousSibling.value === ''){
+                if(e.target.previousSibling.value === '' && projects.length > 0){
                     changeMode()
                 }
-                else{
+                else if(e.target.previousSibling.value !== ''){
                     dispatch({type:'ADD_PROJECT',Projects: projects, newProject: {id: projects.length, title: e.target.previousSibling.value}})
                     changeMode()
                 }

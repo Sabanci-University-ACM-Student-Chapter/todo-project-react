@@ -20,6 +20,10 @@ function ControlPanel() {
     {
         title: 'Completed',
         svg: 'Completed'
+    },
+    {
+        title: 'Projects',
+        svg: 'Completed'
     }
     ])
 
