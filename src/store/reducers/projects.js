@@ -4,9 +4,9 @@ const Projects = initialStates.Projects
 const ProjectReducer = (state=Projects,action) => {
     switch(action.type){
         case 'ADD_PROJECT':
-          return [...Projects, action.newProject]
+          return [...action.Projects, action.newProject]
           default:
-            return [...Projects]
+            return state
     }
 }
 

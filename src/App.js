@@ -6,6 +6,7 @@ import Inbox from './Components/Inbox'
 import Completed from './Components/Completed'
 import Today from './Components/Today'
 import Upcoming from './Components/Upcoming';
+import AddTodo from './Components/AddTodo';
 
 
 
@@ -35,6 +36,11 @@ function App() {
       return ( <div className="App">
                 <SideBar />
                 <Upcoming />
+               </div>)
+      case 'ADD_TODO':
+        return ( <div className="App">
+                <SideBar />
+                <AddTodo />
                </div>)
     default:
       return ( <div className="App">

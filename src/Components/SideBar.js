@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import AddProject from './AddProject.js';
 import ControlPanel from './ControlPanel.js'
 import SubTopic from './SubTopic.js'
@@ -9,7 +9,7 @@ import SubTopic from './SubTopic.js'
 
 export default function SideBar() {
 
-
+    const dispatch = useDispatch()
     const projects = useSelector(state => state.Projects)
 
 
@@ -31,7 +31,7 @@ export default function SideBar() {
                 return <SubTopic key={index} id={value.id} title={value.title} />
             })}
             </div>
-            <AddProject />
+            <AddProject onClick={() => dispatch({type:'ADD_TODO'})}/>
         </div>
     )
 }

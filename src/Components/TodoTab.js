@@ -5,7 +5,7 @@ import Icon from './Icon'
 
 function TodoTab(props) {
     const dispatch = useDispatch()
-    
+    const todos = useSelector(state => state.Todos)
     const isCompleted = useSelector(state => state.Todos[props.self_id].isCompleted)
     const [checkedClass,setcheckedClass] = useState("TodoContainer")
     
@@ -42,7 +42,7 @@ function TodoTab(props) {
             </label>
             <div className="Detail">
                 <p> {props.date} </p>
-                <Icon class="icon" tag="Detail" onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: props.self_id})} />
+                <Icon class="icon" tag="Detail" onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: props.self_id, todos: todos})} />
             </div>
            
         </div>

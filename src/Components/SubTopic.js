@@ -13,16 +13,19 @@ function SubTopic(props) {
     });
 
     
-
-    return (
-        <div>
-            <h5 className="projectName"> {props.title} </h5>
-            {projectTodos.map((value,index) => {
-                return <ControlTab key={index} title={value.description} svg={value.svg} onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: value.self_id})}  />
-            })}
-            
-        </div>
-    )
+    if(projectTodos.length === 0){
+        return ''
+    }
+    else {
+        return (
+            <div>
+                <h5 className="projectName"> {props.title} </h5>
+                {projectTodos.map((value,index) => {
+                    return <ControlTab key={index} title={value.description} svg={value.svg} onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: value.self_id, todos:todos})}  />
+                })}
+                
+            </div>
+        )}
 }
 
 export default SubTopic

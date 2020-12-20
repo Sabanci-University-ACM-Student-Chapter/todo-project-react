@@ -1,5 +1,5 @@
-import initialStates from './initialStates'
-let todos = initialStates.todos
+// import initialStates from './initialStates'
+// let todos = initialStates.todos
 // console.log(todos)
 
 
@@ -24,17 +24,20 @@ const ActualTodoReducer = (state='INBOX',action) => {
 
     switch(action.type){
         case 'CHANGE_ACTUAL':
-            let actualTodo = todos[action.self_id]
-            // actualTodo.actual = true
-            let rest = todos.slice()
+            let actualTodo = action.todos[action.self_id] || action.todos[1] || {type:'EMPTY'}
+            if(actualTodo.type === 'EMPTY'){
+                return 'INBOX'
+            }
+            actualTodo.actual = true
+            let rest = action.todos.slice()
             rest.splice(action.self_id,1)
             rest.forEach(element => {
-                element.actual = false;
+                element.actual = false || element
             })
-            actualTodo.actual = true
-            todos = [actualTodo, ...rest]
-            todos.sort(compare)
-            return actualTodo
+            actualTodo.actual = true 
+            action.todos = [actualTodo, ...rest]
+            action.todos.sort(compare)
+            return actualTodo || 'INBOX'
         case 'CHANGE_TO_INBOX':
             return 'INBOX'
         case 'CHANGE_TO_COMPLETED':
@@ -43,6 +46,8 @@ const ActualTodoReducer = (state='INBOX',action) => {
             return 'TODAY'
         case 'CHANGE_TO_UPCOMING':
             return 'UPCOMING'
+        case 'ADD_TODO':
+            return 'ADD_TODO'
         default:
             return state
     }
