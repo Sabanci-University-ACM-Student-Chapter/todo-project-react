@@ -20,7 +20,7 @@ function PageControl(props) {
         return (
             <div className="PageControl">
                 <PageIcon tag="Edit" customClickEvent={props.changeMode} color="#fef791" />
-                <PageIcon tag="Label" color="#fba960" />
+                <PageIcon tag="Label" customClickEvent={props.changeLabel} color="#fba960" />
                 <PageIcon tag="Remove" color="#b077fc" customClickEvent={() => {
                     dispatch({type:'REMOVE_TODO', self_id:props.actual.self_id,todos:todos});
                     dispatch({type:'CHANGE_ACTUAL',self_id:props.actual.self_id - 1, todos:todos})

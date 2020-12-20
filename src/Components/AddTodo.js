@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import InboxHeader from './InboxHeader'
 
@@ -10,11 +10,19 @@ function AddTodo() {
 
     const [mode,setMode] = useState('standart');
 
+    useEffect(() => {
+        if(todos.length === 0){
+            setMode('newProject')
+        }
+    },[todos.length])
+
+
+    
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
-
+    
     today = yyyy +'-'+mm+'-'+dd
 
 
@@ -79,7 +87,7 @@ function AddTodo() {
                         svg: 'Element2',
                         actual: false,
                         isCompleted: false,
-                        detail: 'Deneme'
+                        detail: ''
                     }})
                 }} />
             </form>

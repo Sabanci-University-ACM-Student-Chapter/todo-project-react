@@ -10,7 +10,7 @@ import SubTopic from './SubTopic.js'
 export default function SideBar() {
 
     const dispatch = useDispatch()
-    const projects = useSelector(state => state.Projects)
+    const projects = useSelector(state => state.Projects) || []
 
 
 

@@ -7,6 +7,8 @@ import PageHeader from './PageHeader'
 function ProjectPage() {
 
     const [mode,setMode] = useState('standart');
+    const [label,setLabel] = useState('standart');
+
 
     const changeMode = () => {
         if(mode ==='edit') {
@@ -16,13 +18,21 @@ function ProjectPage() {
             setMode('edit')
         }
     }
+    const changeLabel = () => {
+        if(label ==='change') {
+            setLabel('standart')
+        }
+        else{
+            setLabel('change')
+        }
+    }
 
     const actual = useSelector(state => state.Actual)
     return (
         <div className="ProjectPage">
-            <PageHeader actual={actual} />
+            <PageHeader changeLabel2={changeLabel} label={label} actual={actual} />
             <NoteDesc mode={mode} actual={actual} />
-            <PageControl changeMode={changeMode} mode={mode} actual={actual} />
+            <PageControl changeLabel={changeLabel} changeMode={changeMode} mode={mode} actual={actual} />
         </div>
     )
 }
