@@ -32,7 +32,7 @@ const ActualTodoReducer = (state='INBOX',action) => {
             let rest = action.todos.slice()
             rest.splice(action.self_id,1)
             rest.forEach(element => {
-                element.actual = false || element
+                element.actual = false 
             })
             actualTodo.actual = true 
             action.todos = [actualTodo, ...rest]
@@ -46,8 +46,8 @@ const ActualTodoReducer = (state='INBOX',action) => {
             return 'TODAY'
         case 'CHANGE_TO_UPCOMING':
             return 'UPCOMING'
-        case 'ADD_TODO':
-            return 'ADD_TODO'
+        case 'ADD_TODOS':
+            return 'ADD_TODOS'
         default:
             return state
     }

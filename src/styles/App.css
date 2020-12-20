@@ -304,4 +304,33 @@ body {
 .checked label {
   text-decoration: line-through;
 }
+.addTodoPage {
+  height: 300px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateX(20px);
+  justify-content: space-evenly;
+}
+.addTodoPage label {
+  font-size: large;
+  font-weight: bold;
+}
+.addTodoPage input,
+.addTodoPage select {
+  padding: 5px 0;
+  width: 210px;
+  font-size: medium;
+  padding-left: 4px;
+}
+.addTodoPage select {
+  width: 218px;
+}
+.addTodoPage div {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  color: #4BA5FF;
+}
 /*# sourceMappingURL=App.css.map */

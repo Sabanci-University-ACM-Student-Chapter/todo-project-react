@@ -37,7 +37,7 @@ function App() {
                 <SideBar />
                 <Upcoming />
                </div>)
-      case 'ADD_TODO':
+      case 'ADD_TODOS':
         return ( <div className="App">
                 <SideBar />
                 <AddTodo />

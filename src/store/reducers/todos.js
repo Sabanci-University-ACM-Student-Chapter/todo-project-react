@@ -24,6 +24,9 @@ const TodoReducer = (state=todos,action) => {
                  }
             })
             return rest2
+        case 'ADD_TODO':
+            let todos3 = [...action.todoList, action.newTodo]
+            return todos3
         default:
             return state
     }

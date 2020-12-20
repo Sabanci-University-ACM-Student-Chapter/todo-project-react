@@ -31,7 +31,7 @@ export default function SideBar() {
                 return <SubTopic key={index} id={value.id} title={value.title} />
             })}
             </div>
-            <AddProject onClick={() => dispatch({type:'ADD_TODO'})}/>
+            <AddProject onClick={() => dispatch({type:'ADD_TODOS'})}/>
         </div>
     )
 }
