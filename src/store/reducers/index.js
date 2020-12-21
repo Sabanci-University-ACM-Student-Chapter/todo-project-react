@@ -7,7 +7,7 @@ import actualTodoReducer from './actual'
 
 const rootReducer = combineReducers({
     Projects: ProjectReducer,
-    Todos: TodoReducer,
+    Todos: TodoReducer ,
     Actual : actualTodoReducer
 })
 

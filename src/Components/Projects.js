@@ -37,6 +37,7 @@ function Projects() {
                                     dispatch({type:'REMOVE_TODO', self_id: element.self_id})
                                     i +=1;
                                 });
+                                
                                 dispatch({type:'REMOVE_PROJECT',id:value2.id})
                             }} />
                         </div>

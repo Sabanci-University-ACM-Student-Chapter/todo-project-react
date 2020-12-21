@@ -5,8 +5,8 @@ import InboxHeader from './InboxHeader'
 function AddTodo() {
 
     const dispatch = useDispatch()
-    const projects = useSelector(state => state.Projects)
-    const todos = useSelector(state => state.Todos)
+    const projects = useSelector(state => state.Projects) 
+    const todos = useSelector(state => state.Todos) 
 
     const [mode,setMode] = useState('standart');
 

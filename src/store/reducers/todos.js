@@ -1,10 +1,10 @@
 // import initialStates from './initialStates'
 
 // const todos = initialStates.todos;
-let todos = JSON.parse(localStorage.getItem("Todos")) || []
+let todos = JSON.parse(localStorage.getItem("Todos"))
 
-if(todos === []){
-    let todos = []
+if(todos === null){
+    todos = []
     localStorage.setItem("Todos", JSON.stringify(todos));
   }
 
@@ -46,7 +46,6 @@ const TodoReducer = (state=todos,action) => {
             todos = JSON.parse(localStorage.getItem("Todos"))
             return todos3
         case 'CHANGE_LABEL':
-            // todos = JSON.parse(localStorage.getItem("Todos")) 
             let todo3 = todos[action.self_id]
             todo3.category = action.newLabel
             localStorage.setItem("Todos", JSON.stringify(todos))

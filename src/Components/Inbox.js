@@ -4,7 +4,7 @@ import InboxHeader from './InboxHeader'
 import TodoTab from './TodoTab'
 
 function Inbox() {
-    const Todos = useSelector(state => state.Todos)
+    const Todos = useSelector(state => state.Todos) || []
 
     return (
         <div>
