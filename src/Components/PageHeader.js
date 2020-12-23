@@ -3,7 +3,7 @@ import {useSelector,useDispatch} from 'react-redux'
 
 
 function PageHeader(props) {
-    const Project = useSelector(state => state.Projects[props.actual.project_id || 0])
+    // const Project = useSelector(state => state.Projects[props.actual.project_id || 0])
     const todos = useSelector(state => state.Todos)
     const dispatch = useDispatch()
     const change = ()=> {
@@ -15,7 +15,7 @@ function PageHeader(props) {
 
     return (
         <div className="PageHeader">
-            <h4> {Project.title} </h4>
+            <h4> {props.actual.project_name} </h4>
             <h1> {props.actual.description} </h1>
             <div className="minInfo">
                 {props.label === 'standart' ? <p> {props.actual.category} </p> : <select id="changeLabel" style={{fontSize:10}} onChange={change}>

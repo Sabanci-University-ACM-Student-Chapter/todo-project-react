@@ -23,7 +23,7 @@ function ControlPanel() {
     },
     {
         title: 'Projects',
-        svg: 'Completed'
+        svg: 'Project'
     }
     ])
 

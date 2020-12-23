@@ -30,7 +30,7 @@ function Projects() {
                         <div className="ProjectName">
                             <h2 > {value2.title} </h2>
                             <Icon class="icon" tag="Trash" onClick={() => {
-                                let willRemoved = todos.filter(todo => todo.project_id === value2.id)
+                                let willRemoved = todos.filter(todo => todo.project_name === value2.title)
                                 let i = 0
                                 willRemoved.forEach(element => {
                                     element.self_id -= i
@@ -41,7 +41,7 @@ function Projects() {
                                 dispatch({type:'REMOVE_PROJECT',id:value2.id})
                             }} />
                         </div>
-                        {todos.filter(todo => todo.project_id === value2.id).map((value,index) => <TodoTab key={index} self_id={value.self_id} description={value.description} date={value.date} isCompleted={value.isCompleted} />)}
+                        {todos.filter(todo => todo.project_name === value2.title).map((value,index) => <TodoTab key={index} self_id={value.self_id} description={value.description} date={value.date} isCompleted={value.isCompleted} />)}
                     </div>
                     
                 )   

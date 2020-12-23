@@ -7,6 +7,7 @@ import Trash from './IconComponents/Trash.js'
 import Element from './IconComponents/Element.js'
 import Element2 from './IconComponents/Element2.js'
 import Detail from './IconComponents/Detail.js'
+import Project from './IconComponents/Project.js'
 
 
 
@@ -20,7 +21,8 @@ function Icon(props) {
         Trash: Trash,
         Element: Element,
         Element2: Element2,
-        Detail: Detail
+        Detail: Detail,
+        Project: Project
     })
     const TagName = components[props.tag || 'Exclamation'];
 

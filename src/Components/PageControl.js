@@ -11,11 +11,14 @@ function PageControl(props) {
     const saveDetail = () => {
         dispatch({type: 'SAVE_DETAIL',self_id:props.actual.self_id})
         props.changeMode()
+        dispatch({type:'CHANGE_ACTUAL', self_id: props.actual.self_id, todos:todos})
     }
     
     const cancelDetail = () => {
         dispatch({type: 'CANCEL_DETAIL',self_id:props.actual.self_id})
         props.changeMode()
+        dispatch({type:'CHANGE_ACTUAL', self_id: props.actual.self_id, todos:todos})
+        
     }
 
     if(props.mode === 'edit'){

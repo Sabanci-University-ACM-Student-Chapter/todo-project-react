@@ -14,7 +14,9 @@ function AddTodo() {
         if(projects.length === 0){
             setMode('newProject')
         }
-    },[projects.length])
+    document.title = 'Add Todo!';
+    },[projects.length]
+    )
 
 
     
@@ -44,7 +46,7 @@ function AddTodo() {
                 
                 {mode === 'standart' ? <div><label> Select Project </label><select id="newTodoProject"  onChange={(e) => changeMode(e)} name="projects">
                 {projects.map((value,index) => {
-                    return <option key={index} value={value.id}> {value.title} </option>
+                    return <option key={index} value={value.title}> {value.title} </option>
                 })}
                 <option value='New'> New Project</option>
             </select> </div>: <div className="addProject"><label> Write your Project's Name</label>
@@ -78,17 +80,24 @@ function AddTodo() {
                 </div>
                 <input type="submit" value="Create Todo!" onClick={(e) => {
                     e.preventDefault()
-                    dispatch({type:'ADD_TODO', todoList:todos, newTodo: {
-                        project_id: parseInt(document.querySelector("#newTodoProject").value),
-                        self_id: todos.length,
-                        description: document.querySelector("#newTodoDescription").value,
-                        category: document.querySelector("#newTodoCategory").value,
-                        date: document.querySelector("#newTodoDate").value,
-                        svg: 'Element2',
-                        actual: false,
-                        isCompleted: false,
-                        detail: ''
-                    }})
+                    if( document.querySelector("#newTodoProject") !== null){
+                        dispatch({type:'ADD_TODO', todoList:todos, newTodo: {
+                            project_name: document.querySelector("#newTodoProject").value,
+                            self_id: todos.length,
+                            description: document.querySelector("#newTodoDescription").value,
+                            category: document.querySelector("#newTodoCategory").value,
+                            date: document.querySelector("#newTodoDate").value,
+                            svg: 'Element2',
+                            actual: false,
+                            isCompleted: false,
+                            detail: ''
+                        }})
+                    }
+                    else {
+                        return window.alert('Please select a project!')
+                    }
+                    
+                    document.querySelector("#newTodoDescription").value = ''
                 }} />
             </form>
         </div>

@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux'
 import ProjectPage from './Components/ProjectPage';
 import SideBar from './Components/SideBar';
@@ -16,6 +16,14 @@ function App() {
 
   const actual = useSelector(state => state.Actual)
 
+  useEffect(() => {
+    if(actual.description !== undefined) {
+      document.title = `Todo-App | ${actual.description}`
+    }
+    else {
+      document.title = `Todo-App | ${actual}`
+    }
+  })
   switch(actual){
     case 'INBOX':
       return ( <div className="App">

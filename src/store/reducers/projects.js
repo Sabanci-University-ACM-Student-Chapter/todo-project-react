@@ -21,7 +21,6 @@ const ProjectReducer = (state=Projects,action) => {
             Projects.forEach(element => {
                  if(element.id > action.id){
                      element.id -= 1
-                     console.log('here')
                  }
             })
             localStorage.setItem("Projects", JSON.stringify(Projects))

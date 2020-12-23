@@ -4,13 +4,14 @@ import ControlTab from './ControlTab.js'
 
 function SubTopic(props) {
     const dispatch = useDispatch()
-    let projectTodos = []
+    // let projectTodos = []
     const todos = useSelector(state => state.Todos)
-    todos.forEach(todo => {
-        if(todo.project_id === props.id){
-            projectTodos.push(todo)
-        }
-    });
+    const projectTodos = todos.filter(todo => todo.project_name === props.title)
+    // todos.forEach(todo => {
+    //     if(todo.project_id === props.id){
+    //         projectTodos.push(todo)
+    //     }
+    // });
 
     
     if(projectTodos.length === 0){
