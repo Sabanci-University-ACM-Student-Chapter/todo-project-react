@@ -4,8 +4,9 @@
 let todos = JSON.parse(localStorage.getItem("Todos"))
 
 if(todos === null){
-    todos = []
-    localStorage.setItem("Todos", JSON.stringify(todos));
+    
+    localStorage.setItem("Todos", JSON.stringify([{"project_name":"TODO 101","self_id":0,"description":"Hello!","category":"Today","date":"2020-12-23","svg":"Element2","actual":false,"isCompleted":false,"detail":"Welcome my to-do application!\nThis is page 1 of the TO-DO 101 course.\n\nThere are a lot of feature you can use. First, let's create a project and todo.\nClick the blue '+' which is in side bar and then select 'New Project' from project options.\nThen write your project's name and fill other blanks. \nRemember, you can add detail after create todo.\nThere are two main category. You can select 'Today' for daily todos or 'Upcoming' for next-date todos.\nDon't forget determine the delivery date!\n\nLet's try yourself and go to lesson 2, ''Review your todos!\""},{"project_name":"TODO 101","self_id":1,"description":"Review your todos!","category":"Today","date":"2020-12-23","svg":"Element2","actual":true,"isCompleted":false,"detail":"You can see all of your todos in 'Inbox'\n\nThere are two different pages for 'Today' and 'Upcoming' todos.\n\nIf you click on 'Done', your todos will be shown on the 'Completed' page.\n\nAnd finally you can manage your projects on 'Projects' page.\n\nLet's move on the last lesson, 'The Project Page!'."},{"project_name":"TODO 101","self_id":2,"description":"The Project Page","category":"Today","date":"2020-12-23","svg":"Element2","actual":false,"isCompleted":false,"detail":"From there, you can easily access your projects. \n\nYou can delete them, with all their todos.\n\nThank you for using this app!\n\nLet's do last exercies. Go to 'Projects' page and delete TODO 101!\n\nGood Bye for now (;"}]));
+    todos =  JSON.parse(localStorage.getItem("Todos"))
   }
 
 

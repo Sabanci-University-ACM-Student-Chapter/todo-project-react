@@ -15,21 +15,23 @@ export default function SideBar() {
 
 
     useEffect(() => {
-        document.querySelector(".controlPanel").addEventListener('scroll', () => {
-            let x = document.querySelector(".controlPanel").scrollTop;
-            let height =document.querySelector(".controlPanel").scrollHeight 
+        document.querySelector(".todos").addEventListener('scroll', () => {
+            let x = document.querySelector(".todos").scrollTop;
+            let height =document.querySelector(".todos").scrollHeight 
             document.body.style.setProperty('--scroll',(10*x)/height);
         });
       });
     return (
         <div className="SideBar" >
             <h1 className="SideBarTitle"> To-Do App </h1>
-            <div className="SideBarScroll"></div>
             <div className="controlPanel">
                 <ControlPanel />
-                {projects.map((value,index) => {
-                return <SubTopic key={index} id={value.id} title={value.title} />
-            })}
+                <div className="todos">
+                    {projects.map((value,index) => {
+                    return <SubTopic key={index} id={value.id} title={value.title} />
+                })}
+                </div>
+                <div className="SideBarScroll"></div>
             </div>
             <AddProject onClick={() => dispatch({type:'ADD_TODOS'})}/>
         </div>

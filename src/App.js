@@ -12,7 +12,6 @@ import AddTodo from './Components/AddTodo';
 
 
 function App() {
- 
 
   const actual = useSelector(state => state.Actual)
 

@@ -11,10 +11,10 @@ function AddTodo() {
     const [mode,setMode] = useState('standart');
 
     useEffect(() => {
+        document.title = `Todo-App | Add Todo`
         if(projects.length === 0){
             setMode('newProject')
         }
-    document.title = 'Add Todo!';
     },[projects.length]
     )
 
@@ -75,12 +75,21 @@ function AddTodo() {
                     </select>
                 </div>
                 <div className="DateInput">
-                    <label > Application Date </label>
+                    <label > Delivery Date </label>
                     <input id="newTodoDate" type="date" defaultValue={today} />
                 </div>
                 <input type="submit" value="Create Todo!" onClick={(e) => {
                     e.preventDefault()
-                    if( document.querySelector("#newTodoProject") !== null){
+                    if( document.querySelector("#newTodoProject") === null){
+                        window.alert('Please select a project!')
+                    }
+                    else if(document.querySelector("#newTodoDescription").value === ''){
+                        window.alert('Please write a title!')
+                    }
+                    else if(document.querySelector("#newTodoDate") === ''){
+                        window.alert('Please write a valid date!')
+                    }
+                    else {
                         dispatch({type:'ADD_TODO', todoList:todos, newTodo: {
                             project_name: document.querySelector("#newTodoProject").value,
                             self_id: todos.length,
@@ -92,9 +101,6 @@ function AddTodo() {
                             isCompleted: false,
                             detail: ''
                         }})
-                    }
-                    else {
-                        return window.alert('Please select a project!')
                     }
                     
                     document.querySelector("#newTodoDescription").value = ''

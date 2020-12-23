@@ -22,7 +22,7 @@ function SubTopic(props) {
             <div>
                 <h5 className="projectName"> {props.title} </h5>
                 {projectTodos.map((value,index) => {
-                    return <ControlTab key={index} title={value.description} svg={value.svg} onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: value.self_id, todos:todos})}  />
+                    return <ControlTab key={index} self_id={value.self_id} title={value.description} svg={value.svg} onClick={() => dispatch({type:'CHANGE_ACTUAL', self_id: value.self_id, todos:todos})}  />
                 })}
                 
             </div>

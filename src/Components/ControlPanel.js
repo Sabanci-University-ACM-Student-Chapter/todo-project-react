@@ -30,7 +30,7 @@ function ControlPanel() {
     
 
     return (
-        <div className="ControlPanel">
+        <div className="controlTab">
             {elements.map((value,index) => {
                 return <ControlTab key={index} title={value.title} svg={value.svg} onClick={() => dispatch({type: `CHANGE_TO_${value.title.toUpperCase()}`})} />
             })}

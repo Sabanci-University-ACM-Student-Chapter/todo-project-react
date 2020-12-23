@@ -45,11 +45,11 @@ body {
 .SideBar {
     grid-area: A;
     display: grid;
-    grid-template-columns: 230px 20px;
+    // grid-template-columns: ;
     grid-template-rows: 60px 620px 1fr;
-    grid-template-areas:"C C"
-                        "A B"
-                        "D D";
+    grid-template-areas:"C"
+                        "A"
+                        "D";
     align-items: center;
     justify-items: center;
     background-color: @bgb;
@@ -62,25 +62,41 @@ body {
         // transform: translate(30px,15px);
         // font-family: 'Roboto', sans-serif;
     }
+   
     .controlPanel {
         grid-area: A;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 230px 20px;
+        grid-template-areas: "A A"
+                             "B C";
         margin-top: 5px;
         height: 100%;
-        border-radius: 50px;
-        overflow-y: scroll;
-        scrollbar-width: 0;
-        &::-webkit-scrollbar {
+        .controlTab {
+          grid-area: A;
+        }
+        .todos {
+          grid-area: B;
+          overflow-y: scroll;
+          &::-webkit-scrollbar {
             display: none;
+        }
         }
     }
     
+  
     .addProject {
         grid-area: D;
     }
 }
+
+
+
 .SideBarScroll {
   text-align: center;
-    grid-area: B;
+  align-self: center;
+  justify-self: center;
+    grid-area: C;
   height: 0%;
   width: 6px;
   border-radius: 3px;
@@ -121,7 +137,8 @@ body {
       transform: translateX(+20px);
   }
   &:hover {
-      padding: 5px 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
   }
 }
 
@@ -193,9 +210,14 @@ body {
   align-items: flex-end;
   grid-template-areas: "A B"
                        "C B";
-  background-color: @phb;
+  // background-color: @phb;
   border-bottom: 1px solid @bgb;
   padding: 0;
+  background-image: url("../assets/bg2.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 350px 0;
+  background-size: cover;
   
   h4 {
   margin-left: 20px;
@@ -444,7 +466,72 @@ to {
   }
 }
 
+.InboxScroll {
+  grid-area: B;
+  height: 0%;
+  width: 6px;
+  border-radius: 3px;
+  background-color: #0082de;
+  // background-color: red;
+  animation: scrollanimation2 1s linear;
+}
 
+:root .InboxScroll {
+  animation-delay: calc(var(--inboxscroll) * -0.1s);
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  }
 
+  .TodayScroll {
+    grid-area: B;
+    height: 0%;
+    width: 6px;
+    border-radius: 3px;
+    background-color: #0082de;
+    // background-color: red;
+    animation: scrollanimation2 1s linear;
+  }
+  
+  :root .TodayScroll {
+    animation-delay: calc(var(--todayscroll) * -0.1s);
+    animation-play-state: paused;
+    /* Bind the animation to scroll */
+    /* These last 2 properites clean up overshoot weirdness */
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    }
+  
+    .UpcomingScroll {
+      .InboxScroll
+    }
+    
+    :root .UpcomingScroll {
+      animation-delay: calc(var(--upcomingscroll) * -0.1s);
+      animation-play-state: paused;
+      /* Bind the animation to scroll */
+      /* These last 2 properites clean up overshoot weirdness */
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      }
+
+      .CompletedScroll {
+        .InboxScroll
+      }
+      
+      :root .CompletedScroll {
+        animation-delay: calc(var(--completedscroll) * -0.1s);
+        animation-play-state: paused;
+        /* Bind the animation to scroll */
+        /* These last 2 properites clean up overshoot weirdness */
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        }
+
+.actualContainer {
+  background-color: #9599e23f;
+}
 
 

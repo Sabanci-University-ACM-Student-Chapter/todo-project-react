@@ -4,8 +4,8 @@
 let Projects = JSON.parse(localStorage.getItem("Projects")) 
 
 if(Projects === null){
-  Projects = []
-  localStorage.setItem("Projects", JSON.stringify(Projects));
+  localStorage.setItem("Projects", JSON.stringify([{"id":0,"title":"TODO 101"}]));
+  Projects = JSON.parse(localStorage.getItem("Projects"))
 }
 
 
