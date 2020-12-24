@@ -57,6 +57,13 @@ body {
   }
   
 .SideBar {
+  @media @max1070 {
+    position:fixed;
+    bottom: 0;
+    left: 0%;
+    width: 100vw;
+    height: 60px;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,13 +251,25 @@ body {
 }
 
 .ProjectPage {
-  display: grid;
-  grid-template-rows: 160px 550px 70px;
-  grid-template-areas: "A"
-                       "B"
-                       "C";
+  @media @min1070 {
+    display: grid;
+    grid-template-rows: 160px 550px 70px;
+    grid-template-areas: "A"
+                         "B"
+                         "C";
+    justify-content: center;
+    align-content: center;
+  }
+  @media @max1070 {
+    display: grid;
+    grid-template-rows: 120px 1fr 60px;
+    grid-template-areas:  "A"
+                          "B"
+                          "C" ;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  }
+  
 }
 
 .PageHeader {
@@ -265,6 +284,7 @@ body {
     border-bottom: 1px solid @bgb;
     padding: 0;
     h4 {
+      font-size: 12px;
       margin-left: 20px;
       grid-area: A;
       color: @phh;
@@ -273,7 +293,7 @@ body {
       h1 {
         height: 80%;
           margin-left: 30px;
-          font-size: 35px;
+          font-size: 20px;
           grid-area: C;
           transform: translateY(-20px);
       }
@@ -326,6 +346,7 @@ body {
 }
 
 .NoteDesc {
+  height: 90%;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -421,8 +442,10 @@ body {
   grid-area: C;
   display: flex;
   justify-content: space-evenly;
-  margin-left: 30px;
   transition: 1s;
+  @media @min1070{
+      margin-left: 30px;
+  }
 }
 
 .TodoContainer {

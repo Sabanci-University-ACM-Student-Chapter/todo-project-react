@@ -46,6 +46,15 @@ body {
   background-color: white;
   border-top: 1px solid #CCE8FE;
 }
+@media (max-width: 1070px) {
+  .SideBar {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    width: 100vw;
+    height: 60px;
+  }
+}
 @media (min-width: 1070px) {
   .SideBar {
     border-top: none;
@@ -200,12 +209,23 @@ body {
 .AddProject .addButton p {
   transform: translateY(-1px);
 }
-.ProjectPage {
-  display: grid;
-  grid-template-rows: 160px 550px 70px;
-  grid-template-areas: "A" "B" "C";
-  justify-content: center;
-  align-content: center;
+@media (min-width: 1070px) {
+  .ProjectPage {
+    display: grid;
+    grid-template-rows: 160px 550px 70px;
+    grid-template-areas: "A" "B" "C";
+    justify-content: center;
+    align-content: center;
+  }
+}
+@media (max-width: 1070px) {
+  .ProjectPage {
+    display: grid;
+    grid-template-rows: 120px 1fr 60px;
+    grid-template-areas: "A" "B" "C";
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media (max-width: 1070px) {
   .PageHeader {
@@ -219,6 +239,7 @@ body {
     padding: 0;
   }
   .PageHeader h4 {
+    font-size: 12px;
     margin-left: 20px;
     grid-area: A;
     color: #4BA5FF;
@@ -226,7 +247,7 @@ body {
   .PageHeader h1 {
     height: 80%;
     margin-left: 30px;
-    font-size: 35px;
+    font-size: 20px;
     grid-area: C;
     transform: translateY(-20px);
   }
@@ -271,6 +292,7 @@ body {
   justify-content: space-evenly;
 }
 .NoteDesc {
+  height: 90%;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -358,8 +380,12 @@ body {
   grid-area: C;
   display: flex;
   justify-content: space-evenly;
-  margin-left: 30px;
   transition: 1s;
+}
+@media (min-width: 1070px) {
+  .PageControl {
+    margin-left: 30px;
+  }
 }
 .TodoContainer {
   font-size: large;
