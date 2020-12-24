@@ -48,7 +48,7 @@ const ActualTodoReducer = (state='INBOX',action) => {
             return 'UPCOMING'
         case 'CHANGE_TO_PROJECTS':
             return 'PROJECTS'
-        case 'ADD_TODOS':
+        case 'CHANGE_TO_ADD TODO':
             return 'ADD_TODOS'
         default:
             return state

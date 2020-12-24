@@ -24,9 +24,8 @@ function ControlTab(props) {
             <div className="controlIcon">
                 <Icon tag={props.svg} />
             </div>
-            <p>
-                {props.title}
-            </p>
+            {props.device === 'Desktop' ? <p>{props.title}</p> : null}
+            
            
         </div>
     )

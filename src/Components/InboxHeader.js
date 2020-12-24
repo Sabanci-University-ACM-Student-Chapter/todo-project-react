@@ -2,7 +2,7 @@ import React from 'react'
 
 function InboxHeader(props) {
     return (
-        <div className="PageHeader">
+        <div className="ProjectHeader">
         <h1> {props.title} </h1>
     </div>
     )

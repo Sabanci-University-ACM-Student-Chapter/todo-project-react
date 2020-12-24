@@ -8,7 +8,7 @@ function TodoTab(props) {
     const todos = useSelector(state => state.Todos)
     const isCompleted = useSelector(state => state.Todos[props.self_id].isCompleted)
     const [checkedClass,setcheckedClass] = useState("TodoContainer")
-    
+    const device = useSelector(state => state.device)
 
     const Completed = () => {
         if(isCompleted === true){

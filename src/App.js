@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import ProjectPage from './Components/ProjectPage';
 import SideBar from './Components/SideBar';
 import Inbox from './Components/Inbox'
@@ -12,7 +12,7 @@ import AddTodo from './Components/AddTodo';
 
 
 function App() {
-
+  const dispatch = useDispatch()
   const actual = useSelector(state => state.Actual)
 
   useEffect(() => {
@@ -22,6 +22,9 @@ function App() {
     else {
       document.title = `Todo-App | ${actual}`
     }
+    window.addEventListener("resize", () => {
+      dispatch({type:'CONTROL_DEVICE'})    
+  });
   })
   switch(actual){
     case 'INBOX':

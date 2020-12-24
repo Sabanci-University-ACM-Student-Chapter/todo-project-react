@@ -20,49 +20,87 @@ body {
   background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 }
 .App {
-  width: 1050px;
-  height: 780px;
-  background-color: white;
+  height: 100vh;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 250px 800px;
-  grid-template-areas: "A B" "A B" "A B";
-  border-radius: 25px;
+  grid-template-rows: 1fr 60px;
+  background-color: white;
+  grid-template-areas: "A" "B";
+}
+@media (min-width: 1070px) {
+  .App {
+    grid-template-rows: 1fr;
+    width: 1050px;
+    height: 780px;
+    background-color: white;
+    grid-template-columns: 250px 800px;
+    grid-template-areas: "A B" "A B" "A B";
+    border-radius: 25px;
+  }
 }
 .SideBar {
-  grid-area: A;
-  display: grid;
-  grid-template-rows: 60px 620px 1fr;
-  grid-template-areas: "C" "A" "D";
+  display: flex;
   align-items: center;
-  justify-items: center;
-  background-color: #CCE8FE;
-  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  grid-area: B;
+  background-color: white;
+  border-top: 1px solid #CCE8FE;
+}
+@media (min-width: 1070px) {
+  .SideBar {
+    border-top: none;
+    grid-area: A;
+    display: grid;
+    grid-template-rows: 60px 620px 1fr;
+    grid-template-areas: "C" "A" "D";
+    align-items: flex-start;
+    justify-items: center;
+    justify-content: center;
+    background-color: #CCE8FE;
+    font-family: 'Roboto', sans-serif;
+  }
 }
 .SideBar .SideBarTitle {
   text-align: center;
+  align-self: center;
   grid-area: C;
 }
-.SideBar .controlPanel {
-  grid-area: A;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 230px 20px;
-  grid-template-areas: "A A" "B C";
-  margin-top: 5px;
-  height: 100%;
-}
-.SideBar .controlPanel .controlTab {
-  grid-area: A;
-}
-.SideBar .controlPanel .todos {
-  grid-area: B;
-  overflow-y: scroll;
-}
-.SideBar .controlPanel .todos::-webkit-scrollbar {
-  display: none;
+@media (min-width: 1070px) {
+  .SideBar .controlPanel {
+    grid-area: A;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 230px 20px;
+    grid-template-rows: max-content 1fr;
+    grid-template-areas: "A A" "B C";
+    margin-top: 5px;
+    height: 100%;
+  }
+  .SideBar .controlPanel .controlTab {
+    grid-area: A;
+    height: fit-content;
+    justify-self: flex-start;
+  }
+  .SideBar .controlPanel .todos {
+    grid-area: B;
+    overflow-y: scroll;
+  }
+  .SideBar .controlPanel .todos::-webkit-scrollbar {
+    display: none;
+  }
 }
 .SideBar .addProject {
   grid-area: D;
+}
+@media (max-width: 1070px) {
+  .SideBar .controlTab {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
 .SideBarScroll {
   text-align: center;
@@ -93,22 +131,31 @@ body {
   animation-fill-mode: both;
 }
 .tabContainer {
-  display: grid;
-  grid-template-columns: 50px 180px;
-  align-items: center;
-  text-align: right;
-  width: 250px;
+  display: flex;
   height: 50px;
-  transition: 0.5s;
-  font-size: 14px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
 }
-.tabContainer p:last-child {
-  text-align: left;
-  transform: translateX(20px);
-}
-.tabContainer:hover {
-  padding-top: 5px;
-  padding-bottom: 5px;
+@media (min-width: 1070px) {
+  .tabContainer {
+    display: grid;
+    grid-template-columns: 50px 180px;
+    align-items: center;
+    text-align: right;
+    width: 250px;
+    height: 50px;
+    transition: 0.5s;
+    font-size: 14px;
+  }
+  .tabContainer p:last-child {
+    text-align: left;
+    transform: translateX(20px);
+  }
+  .tabContainer:hover {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 .icon {
   height: 20px;
@@ -291,16 +338,23 @@ body {
   font-size: large;
   display: grid;
   grid-template-rows: 50px;
-  grid-template-columns: 50px 730px;
+  grid-template-columns: 50px 1fr 150px;
   justify-items: flex-start;
   align-items: center;
-  grid-template-areas: "A B";
+  grid-template-areas: "A B C";
+}
+@media (max-width: 1070px) {
+  .TodoContainer {
+    grid-template-rows: minmax(50px, auto);
+  }
 }
 .TodoContainer label {
   grid-area: B;
+  overflow-x: hidden;
+  width: 100%;
 }
 .TodoContainer .Detail {
-  grid-area: B;
+  grid-area: C;
   justify-self: flex-end;
   display: grid;
   grid-template-columns: 1fr 30px;
@@ -318,63 +372,112 @@ body {
 .checked label {
   text-decoration: line-through;
 }
-.addTodoPage {
-  height: 300px;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  align-items: flex-start;
-  transform: translateX(20px);
-  justify-content: space-evenly;
+@media (max-width: 1070px) {
+  .addTodoPage {
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .addTodoPage label {
+    font-size: large;
+    font-weight: bold;
+  }
+  .addTodoPage div {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    align-items: center;
+    color: #4BA5FF;
+  }
+  .addTodoPage input,
+  .addTodoPage select {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+  }
 }
-.addTodoPage label {
-  font-size: large;
-  font-weight: bold;
+@media (min-width: 1070px) {
+  .addTodoPage {
+    height: 300px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(20px);
+    justify-content: space-evenly;
+  }
+  .addTodoPage label {
+    font-size: large;
+    font-weight: bold;
+  }
+  .addTodoPage input,
+  .addTodoPage select {
+    padding: 5px 0;
+    width: 210px;
+    font-size: medium;
+    padding-left: 4px;
+  }
+  .addTodoPage select {
+    width: 218px;
+  }
+  .addTodoPage div {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    color: #4BA5FF;
+  }
 }
-.addTodoPage input,
-.addTodoPage select {
-  padding: 5px 0;
-  width: 210px;
-  font-size: medium;
-  padding-left: 4px;
+@media (max-width: 1070px) {
+  .Project {
+    font-size: small;
+    height: calc(100vh - 120px);
+  }
+  .Project .ProjectName {
+    width: 95%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(15px);
+    color: #4BA5FF;
+  }
+  .Project .ProjectTabs {
+    height: 100%;
+    overflow-y: scroll;
+  }
 }
-.addTodoPage select {
-  width: 218px;
-}
-.addTodoPage div {
-  display: flex;
-  width: 500px;
-  justify-content: space-between;
-  color: #4BA5FF;
-}
-.Project {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  height: 630px;
-  grid-template-columns: 780px 20px;
-  grid-template-areas: "A B";
-}
-.Project h2 {
-  color: #4BA5FF;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.Project .ProjectTabs {
-  grid-area: A;
-  overflow-y: scroll;
-  height: 100%;
-}
-.Project .ProjectName {
-  width: 775px;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.Project .ProjectTabs::-webkit-scrollbar {
-  display: none;
+@media (min-width: 1070px) {
+  .Project {
+    display: grid;
+    align-items: center;
+    height: 630px;
+    grid-template-columns: 780px 20px;
+    grid-template-areas: "A B";
+  }
+  .Project h2 {
+    color: #4BA5FF;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .Project .ProjectTabs {
+    grid-area: A;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .Project .ProjectName {
+    width: 775px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .Project .ProjectTabs::-webkit-scrollbar {
+    display: none;
+  }
 }
 .ProjectScroll {
   grid-area: B;
@@ -464,6 +567,50 @@ body {
   animation-fill-mode: both;
 }
 .actualContainer {
+  border-radius: 999px;
   background-color: #9599e23f;
+}
+@media (min-width: 1070px) {
+  .actualContainer {
+    border-radius: 0;
+  }
+}
+@media (max-width: 1070px) {
+  .ProjectHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    text-align: center;
+    border-bottom: 1px solid #CCE8FE;
+  }
+}
+@media (min-width: 1070px) {
+  .ProjectHeader {
+    grid-area: A;
+    display: grid;
+    grid-template-columns: 650px 150px;
+    grid-template-rows: 50px 100px;
+    align-items: flex-end;
+    grid-template-areas: "A B" "C B";
+    border-bottom: 1px solid #CCE8FE;
+    padding: 0;
+    background-image: url("../assets/bg2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 350px 0;
+    background-size: cover;
+  }
+  .ProjectHeader h4 {
+    margin-left: 20px;
+    grid-area: A;
+    color: #4BA5FF;
+  }
+  .ProjectHeader h1 {
+    margin-left: 30px;
+    font-size: 50px;
+    grid-area: C;
+    transform: translateY(-20px);
+  }
 }
 /*# sourceMappingURL=App.css.map */
