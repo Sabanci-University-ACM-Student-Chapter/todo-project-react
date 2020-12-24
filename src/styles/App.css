@@ -207,31 +207,58 @@ body {
   justify-content: center;
   align-content: center;
 }
-.PageHeader {
-  grid-area: A;
-  display: grid;
-  grid-template-columns: 650px 150px;
-  grid-template-rows: 50px 100px;
-  align-items: flex-end;
-  grid-template-areas: "A B" "C B";
-  border-bottom: 1px solid #CCE8FE;
-  padding: 0;
-  background-image: url("../assets/bg2.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 350px 0;
-  background-size: cover;
+@media (max-width: 1070px) {
+  .PageHeader {
+    grid-area: A;
+    display: grid;
+    grid-template-columns: 1fr 90px;
+    grid-template-rows: 50px 100px;
+    align-items: flex-end;
+    grid-template-areas: "A B" "C B";
+    border-bottom: 1px solid #CCE8FE;
+    padding: 0;
+  }
+  .PageHeader h4 {
+    margin-left: 20px;
+    grid-area: A;
+    color: #4BA5FF;
+  }
+  .PageHeader h1 {
+    height: 80%;
+    margin-left: 30px;
+    font-size: 35px;
+    grid-area: C;
+    transform: translateY(-20px);
+  }
 }
-.PageHeader h4 {
-  margin-left: 20px;
-  grid-area: A;
-  color: #4BA5FF;
-}
-.PageHeader h1 {
-  margin-left: 30px;
-  font-size: 50px;
-  grid-area: C;
-  transform: translateY(-20px);
+@media (min-width: 1070px) {
+  .PageHeader {
+    grid-area: A;
+    display: grid;
+    grid-template-columns: 650px 150px;
+    grid-template-rows: 50px 100px;
+    align-items: flex-end;
+    grid-template-areas: "A B" "C B";
+    border-bottom: 1px solid #CCE8FE;
+    padding: 0;
+    background-image: url("../assets/bg2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 350px 0;
+    background-size: cover;
+  }
+  .PageHeader h4 {
+    margin-left: 20px;
+    grid-area: A;
+    color: #4BA5FF;
+  }
+  .PageHeader h1 {
+    height: 80%;
+    margin-left: 30px;
+    font-size: 35px;
+    grid-area: C;
+    transform: translateY(-20px);
+  }
 }
 .minInfo {
   grid-area: B;
@@ -247,7 +274,7 @@ body {
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 760px 40px;
+  grid-template-columns: 98vw;
   grid-template-areas: "A B";
 }
 .NoteDesc .noteArea {
@@ -261,7 +288,7 @@ body {
   overflow-y: scroll;
   resize: none;
   font-size: 18px;
-  margin-left: 45px;
+  margin-left: 15px;
 }
 .NoteDesc .noteArea::-webkit-scrollbar {
   display: none;

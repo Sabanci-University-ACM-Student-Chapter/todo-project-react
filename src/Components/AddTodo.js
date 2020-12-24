@@ -50,7 +50,7 @@ function AddTodo() {
                 })}
                 <option value='New'> New Project</option>
             </select> </div>: <div className="addProject"><label> Write your Project's Name</label>
-            <input type="text" placeholder="For cancel, submit blank"/>
+            <input type="text" placeholder="For cancel, submit blank" maxlength="25"/>
             <button onClick={(e) => {
                 e.preventDefault();
                 if(e.target.previousSibling.value === '' && projects.length > 0){
@@ -65,7 +65,7 @@ function AddTodo() {
         </div>
                 <div className="NameInput" >
                     <label> Todo Name </label>
-                    <input type="text" id="newTodoDescription" />
+                    <input type="text" id="newTodoDescription" maxlength="70" />
                 </div>
                 <div className="CategoryInput">
                 <label> Todo Category </label>
@@ -88,6 +88,9 @@ function AddTodo() {
                     }
                     else if(document.querySelector("#newTodoDate") === ''){
                         window.alert('Please write a valid date!')
+                    }
+                    else if(document.querySelector("#newTodoDescription").value.length > 70){
+                        window.alert('Please write less than 70 words!')
                     }
                     else {
                         dispatch({type:'ADD_TODO', todoList:todos, newTodo: {
