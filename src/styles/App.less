@@ -261,6 +261,7 @@ body {
     align-content: center;
   }
   @media @max1070 {
+    height: calc(100vh - 60px);
     display: grid;
     grid-template-rows: 120px 1fr 60px;
     grid-template-areas:  "A"
@@ -441,6 +442,7 @@ body {
 .PageControl {
   grid-area: C;
   display: flex;
+  align-self: flex-start;
   justify-content: space-evenly;
   transition: 1s;
   @media @min1070{
