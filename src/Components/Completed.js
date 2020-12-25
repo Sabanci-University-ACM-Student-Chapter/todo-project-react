@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import InboxHeader from './InboxHeader'
 import TodoTab from './TodoTab'
 
-function Completed() {
+function Completed() { // a page to present completed todos.
     const Todos = useSelector(state => state.Todos.filter(todo => todo.isCompleted === true))
     useEffect(() => {
         document.querySelector("#completed").addEventListener('scroll', () => {

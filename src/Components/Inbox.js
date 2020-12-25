@@ -3,9 +3,11 @@ import {useSelector} from 'react-redux'
 import InboxHeader from './InboxHeader'
 import TodoTab from './TodoTab'
 
+// a page to list all todos.
+
 function Inbox() {
     const Todos = useSelector(state => state.Todos) || []
-    useEffect(() => {
+    useEffect(() => { // height information for customized scroll bar.
         document.querySelector("#inbox").addEventListener('scroll', () => {
             let x = document.querySelector("#inbox").scrollTop;
             let height =document.querySelector("#inbox").scrollHeight 

@@ -5,7 +5,9 @@ import ControlPanel from './ControlPanel.js'
 import SubTopic from './SubTopic.js'
 
 
-
+// a container component to form Side Bar
+// it gives information to its child.
+// if device is a desktop device, it returns a quick projects list.
 
 export default function SideBar() {
 
@@ -16,9 +18,9 @@ export default function SideBar() {
 
     useEffect(() => {
         if(device === 'Mobile'){
-
+            // if device is a mobile device, do nothing. 
         }
-        else {
+        else { // height information for customized scroll bar.
             document.querySelector(".todos").addEventListener('scroll', () => {
                 let x = document.querySelector(".todos").scrollTop;
                 let height =document.querySelector(".todos").scrollHeight;
@@ -28,7 +30,7 @@ export default function SideBar() {
         
       });
 
-    if(device === 'Desktop'){
+    if(device === 'Desktop'){ // this condition determines what will render
         return (
             <div className="SideBar" >
                 <h1 className="SideBarTitle"> To-Do App </h1>
@@ -56,18 +58,3 @@ export default function SideBar() {
 }
 
 
-//     return (
-//         <div className="SideBar" >
-//             <h1 className="SideBarTitle"> To-Do App </h1>
-//             <div className="controlPanel">
-//                 <ControlPanel device={device} />
-//                 <div className="todos">
-//                     {projects.map((value,index) => {
-//                     return <SubTopic key={index} id={value.id} title={value.title} />
-//                 })}
-//                 </div>
-//                 <div className="SideBarScroll"></div>
-//             </div>
-//             <AddProject onClick={() => dispatch({type:'ADD_TODOS'})}/>
-//         </div>
-//     )

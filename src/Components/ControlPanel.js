@@ -8,7 +8,7 @@ function ControlPanel(props) {
     const dispatch = useDispatch()
     
     useEffect(() => {
-        if(props.device === 'Desktop'){
+        if(props.device === 'Desktop'){ // takes device information from its parent and determine how control panel looks
             setElements([{
                 title: 'Inbox',
                 svg: 'Inbox'
@@ -64,7 +64,7 @@ function ControlPanel(props) {
 
     return (
         <div className="controlTab">
-            {elements.map((value,index) => {
+            {elements.map((value,index) => { // all control tabs, each tab has a function to change actual so change the page.
                 return <ControlTab device={props.device} key={index} title={value.title} svg={value.svg} onClick={() => dispatch({type: `CHANGE_TO_${value.title.toUpperCase()}`})} />
             })}
         </div>

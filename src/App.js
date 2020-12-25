@@ -9,24 +9,24 @@ import Upcoming from './Components/Upcoming';
 import Projects from './Components/Projects';
 import AddTodo from './Components/AddTodo';
 
-
+// main component where is entire application runs.
 
 function App() {
   const dispatch = useDispatch()
   const actual = useSelector(state => state.Actual)
 
   useEffect(() => {
-    if(actual.description !== undefined) {
+    if(actual.description !== undefined) { // this condition determines title of the page in head.
       document.title = `Todo-App | ${actual.description}`
     }
     else {
       document.title = `Todo-App | ${actual}`
     }
-    window.addEventListener("resize", () => {
+    window.addEventListener("resize", () => { // main controller to work ScreenSize reducer.
       dispatch({type:'CONTROL_DEVICE'})    
   });
   })
-  switch(actual){
+  switch(actual){ // handmade router.
     case 'INBOX':
       return ( <div className="App">
                 <SideBar />
@@ -66,27 +66,6 @@ function App() {
                )
   }
 
-
-  // return (
-  //   <div className="App">
-  //     <SideBar />
-      
-  //     {() => {
-  //       switch(actual){
-  //         case 'INBOX':
-  //           return <Inbox />
-  //         case 'TODAY':
-  //           return <Today />
-  //         case '':
-  //           return <ProjectPage />
-  //         default:
-  //           return <Inbox />
-  //       }
-  //     }}
-      
-  //     {/* {actual === 'INBOX' ? <Inbox /> : <ProjectPage />} */}
-    // </div>
-  // );
 }
 
 export default App

@@ -1,4 +1,5 @@
-
+//  a reducer to determine your device has enough screen size to application.
+// it is used to change forms of components for mobile and desktop.
 
 const screenSizeReducer = (state="Desktop",action) => {
     switch(action.type){

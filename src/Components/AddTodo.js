@@ -4,17 +4,17 @@ import InboxHeader from './InboxHeader'
 
 function AddTodo() {
 
-    const dispatch = useDispatch()
-    const projects = useSelector(state => state.Projects) 
+    const dispatch = useDispatch() // Dispatch is used to change states on redux.
+    const projects = useSelector(state => state.Projects) // Selector is used to take information from redux.
     const todos = useSelector(state => state.Todos) 
 
-    const [mode,setMode] = useState('standart');
+    const [mode,setMode] = useState('standart'); // State is used to store local information in components.
 
     useEffect(() => {
-        document.title = `Todo-App | Add Todo`
+        document.title = `Todo-App | Add Todo` 
         if(projects.length === 0){
-            setMode('newProject')
-        }
+            setMode('newProject') // If there is no project, direct changes mode to create a new one.
+        } 
     },[projects.length]
     )
 
@@ -29,7 +29,7 @@ function AddTodo() {
 
 
 
-    const changeMode = (e) => {
+    const changeMode = (e) => { // mode changer between create todo and select todo
         if(mode ==='newProject') {
             setMode('standart')
         }
@@ -47,18 +47,20 @@ function AddTodo() {
                 {mode === 'standart' ? <div><label> Select Project </label><select id="newTodoProject"  onChange={(e) => changeMode(e)} name="projects">
                 {projects.map((value,index) => {
                     return <option key={index} value={value.title}> {value.title} </option>
-                })}
-                <option value='New'> New Project</option>
-            </select> </div>: <div className="addProject"><label> Write your Project's Name</label>
+                })} {/* This code works to show all of current projects */}
+                <option value='New'> New Project</option> {/* changes mode to NewProject to add new project */}
+            </select> </div>: 
+        
+            <div className="addProject"><label> Write your Project's Name</label> {/* If mode is newProject, this part render New Project adding input*/}
             <input type="text" placeholder="For cancel, submit blank" maxlength="25"/>
             <button onClick={(e) => {
                 e.preventDefault();
                 if(e.target.previousSibling.value === '' && projects.length > 0){
-                    changeMode()
+                    changeMode() // If you do not want to add new project
                 }
                 else if(e.target.previousSibling.value !== ''){
                     dispatch({type:'ADD_PROJECT',Projects: projects, newProject: {id: projects.length, title: e.target.previousSibling.value}})
-                    changeMode()
+                    changeMode() // this part of condition, adds new projects and shifts mode to select project for your todo.
                 }
             }} > Submit </button>
         </div>}
@@ -80,7 +82,7 @@ function AddTodo() {
                 </div>
                 <input type="submit" value="Create Todo!" onClick={(e) => {
                     e.preventDefault()
-                    if( document.querySelector("#newTodoProject") === null){
+                    if( document.querySelector("#newTodoProject") === null){ // Preventions to collapse.
                         window.alert('Please select a project!')
                     }
                     else if(document.querySelector("#newTodoDescription").value === ''){
@@ -93,7 +95,7 @@ function AddTodo() {
                         window.alert('Please write less than 70 words!')
                     }
                     else {
-                        dispatch({type:'ADD_TODO', todoList:todos, newTodo: {
+                        dispatch({type:'ADD_TODO', todoList:todos, newTodo: { // takes all the information, and sends to reducer to create a todo.
                             project_name: document.querySelector("#newTodoProject").value,
                             self_id: todos.length,
                             description: document.querySelector("#newTodoDescription").value,
@@ -106,7 +108,7 @@ function AddTodo() {
                         }})
                     }
                     
-                    document.querySelector("#newTodoDescription").value = ''
+                    document.querySelector("#newTodoDescription").value = '' 
                 }} />
             </form>
         </div>

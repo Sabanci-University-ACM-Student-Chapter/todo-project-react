@@ -3,6 +3,8 @@ import {useSelector} from 'react-redux'
 import InboxHeader from './InboxHeader'
 import TodoTab from './TodoTab'
 
+// a page component for Today labeled todos.
+
 function Today() {
     const Todos = useSelector(state => state.Todos.filter(todo => todo.category === 'Today'))
     useEffect(() => {

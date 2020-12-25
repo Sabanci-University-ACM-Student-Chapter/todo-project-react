@@ -11,7 +11,10 @@ import Project from './IconComponents/Project.js'
 import AddButton from './IconComponents/AddButton.js'
 
 
-
+// Dynamic Icon components
+// This component takes what its parents want and then returns that icon.
+// Icon components are used for this formation.
+// Exactly, Vue is easier for dynamic components.
 
 function Icon(props) {
 

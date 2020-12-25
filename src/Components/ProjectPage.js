@@ -4,6 +4,9 @@ import NoteDesc from './NoteDesc'
 import PageControl from './PageControl'
 import PageHeader from './PageHeader'
 
+// a container component for provide information to component in detail page.
+// it determines how other components place and their mode.
+
 function ProjectPage() {
 
     const [mode,setMode] = useState('standart');

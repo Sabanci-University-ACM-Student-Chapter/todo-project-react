@@ -292,13 +292,25 @@ body {
   flex-flow: column nowrap;
   justify-content: space-evenly;
 }
-.NoteDesc {
-  height: 90%;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  grid-template-columns: 98vw;
-  grid-template-areas: "A B";
+@media (max-width: 1070px) {
+  .NoteDesc {
+    height: 90%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 98vw;
+    grid-template-areas: "A B";
+  }
+}
+@media (min-width: 1070px) {
+  .NoteDesc {
+    height: 90%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 20px;
+    grid-template-areas: "A B";
+  }
 }
 .NoteDesc .noteArea {
   border: none;
@@ -320,10 +332,10 @@ body {
   grid-area: B;
   height: 0%;
   width: 6px;
+  justify-self: center;
   border-radius: 3px;
   background-color: #00b7ff;
   animation: scrollanimation 1s linear;
-  transform: translateX(6px);
 }
 @keyframes scrollanimation {
   to {

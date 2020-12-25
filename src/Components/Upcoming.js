@@ -3,6 +3,8 @@ import {useSelector} from 'react-redux'
 import InboxHeader from './InboxHeader'
 import TodoTab from './TodoTab'
 
+// a page component for Upcoming labeled todos.
+
 function Upcoming() {
     const Todos = useSelector(state => state.Todos.filter(todo => todo.category === 'Upcoming'))
     useEffect(() => {

@@ -9,10 +9,12 @@ import Remove from './IconComponents/Remove.js'
 
 
 
-
+// Component is used to form buttons in detail page.
+// takes their background color by parents.
+// Like Icon component, also this component is a dynamic component.
 
 function PageIcon(props) {
-    useEffect(() => {
+    useEffect(() => { 
         document.querySelector(`#${props.tag}`).style.backgroundColor = props.color
         document.querySelector(`#${props.tag}`).parentElement.style.backgroundColor = props.color
       });

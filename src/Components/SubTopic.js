@@ -2,16 +2,13 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import ControlTab from './ControlTab.js'
 
+// If device is a desktop, the SideBar component calls that components per projects.
+// It creates a qucik projects list.
+
 function SubTopic(props) {
     const dispatch = useDispatch()
-    // let projectTodos = []
     const todos = useSelector(state => state.Todos)
     const projectTodos = todos.filter(todo => todo.project_name === props.title)
-    // todos.forEach(todo => {
-    //     if(todo.project_id === props.id){
-    //         projectTodos.push(todo)
-    //     }
-    // });
 
     
     if(projectTodos.length === 0){

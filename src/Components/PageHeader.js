@@ -3,10 +3,9 @@ import {useSelector,useDispatch} from 'react-redux'
 
 
 function PageHeader(props) {
-    // const Project = useSelector(state => state.Projects[props.actual.project_id || 0])
     const todos = useSelector(state => state.Todos)
     const dispatch = useDispatch()
-    const change = ()=> {
+    const change = ()=> { // this function is responsible to change the label and pass to reducer.
         let label = document.querySelector("#changeLabel").value;
         dispatch({type:'CHANGE_LABEL', newLabel: label, todos: todos, self_id:props.actual.self_id})
         props.changeLabel2();
